@@ -1,0 +1,17 @@
+name: ci
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+      - uses: Gr1N/setup-poetry@v8
+      - run: |
+          python --version 
+          poetry --version
+          poetry run python bankaccount.py 
